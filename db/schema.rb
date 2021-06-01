@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2021_06_01_153556) do
   create_table "links", force: :cascade do |t|
     t.string "url"
     t.string "short_code"
-    t.datetime "expired_at"
+    t.date "expired_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

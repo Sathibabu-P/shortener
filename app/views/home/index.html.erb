@@ -1,2 +1,11 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h1>Form</h1>
+
+<%= form_with model: @link, remote: true  do |f|%>
+  <%= f.text_field :url %>
+  <%= f.submit "Create" %>
+<% end %>
+
+
+<div id="short_link">
+
+</div>

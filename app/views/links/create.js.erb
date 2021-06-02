@@ -1,1 +1,10 @@
-Rails.$("#short_link").html('hello');
+
+var ele =  document.getElementById("short_link")
+var form = document.getElementById("link_form")
+var isvalid = "<%=@link.persisted?%>";
+if(isvalid=="true") {
+  ele.innerHTML = "<%=escape_javascript(link_to nil, @link.short_url, target: "_blank") %>";
+}else{
+  ele.innerHTML = "<%=@link.errors.full_messages.first%>"
+}
+form.reset();

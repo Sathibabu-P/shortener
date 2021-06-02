@@ -4,6 +4,7 @@ class HomeController < ApplicationController
   end
 
   def stats
+    @links = Link.includes(:impressionists)
   end
-  
+
 end

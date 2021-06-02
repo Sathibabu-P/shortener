@@ -1,11 +1,11 @@
-<h1>Form</h1>
+<h1>Generate Short Link</h1>
 
-<%= form_with model: @link, remote: true  do |f|%>
-  <%= f.text_field :url %>
-  <%= f.submit "Create" %>
-<% end %>
+  <%= form_with model: @link, html: { id: 'link_form', data: { remote: true } } do |form| %>
+    <%= form.text_field :url%>
+    <%= form.submit "Create" %>
+  <% end %>
+  <br>
+  <div id="short_link"> </div>
 
 
-<div id="short_link">
 
-</div>

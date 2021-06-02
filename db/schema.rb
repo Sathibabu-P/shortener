@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_01_153556) do
+ActiveRecord::Schema.define(version: 2021_06_01_185643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "impressionists", force: :cascade do |t|
+    t.string "impressionable_type"
+    t.integer "impressionable_id"
+    t.string "ip_address"
+    t.string "country"
+    t.text "request_hash"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["impressionable_type", "impressionable_id", "country"], name: "poly_country_index"
+    t.index ["impressionable_type", "impressionable_id", "ip_address"], name: "poly_ip_index"
+  end
 
   create_table "links", force: :cascade do |t|
     t.string "url"
@@ -21,6 +33,7 @@ ActiveRecord::Schema.define(version: 2021_06_01_153556) do
     t.date "expired_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "impressionable_count"
   end
 
 end

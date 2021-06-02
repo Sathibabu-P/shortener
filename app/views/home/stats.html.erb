@@ -1,0 +1,6 @@
+<% @links.each do |link| %>
+  <h2><%=link.try(:url)%></h2>
+  <p><%=link.try(:short_url)%></p>
+  <p>Number of clicks: <%=link.impressionable_count%></p>
+  <p>Top Countries: <%=link.impressionists.top_countries%></p>
+<%end%>

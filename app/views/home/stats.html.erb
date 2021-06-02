@@ -1,6 +1,9 @@
 <% @links.each do |link| %>
-  <h2><%=link.try(:url)%></h2>
-  <p><%=link.try(:short_url)%></p>
+  <h4><%=link_to nil, link.try(:url), target: "_blank"%></h4>
+  <p><%=link_to nil, link.try(:short_url),target: "_blank"%></p>
   <p>Number of clicks: <%=link.impressionable_count%></p>
   <p>Top Countries: <%=link.impressionists.top_countries%></p>
+  <hr>
 <%end%>
+
+<%= paginate @links %>

@@ -4,7 +4,7 @@ class HomeController < ApplicationController
   end
 
   def stats
-    @links = Link.includes(:impressionists)
+    @links = Link.includes(:impressionists).page(params[:page]).per(10)
   end
 
 end
